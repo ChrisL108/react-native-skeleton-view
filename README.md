@@ -4,18 +4,40 @@ Animated skeleton view that extends the normal View component
 
 ## Installation
 
+with `npm`:
+
 ```sh
-npm install react-native-skeleton-view
+npm install @qwertydevs/react-native-skeleton-view
+```
+
+with `yarn`:
+
+```sh
+yarn add @qwertydevs/react-native-skeleton-view
 ```
 
 ## Usage
 
 ```js
-import { multiply } from "react-native-skeleton-view";
+import LoadingView from '@qwertydevs/react-native-skeleton-view';
+```
 
-// ...
+```js
+const [loading, setLoading] = React.useState(true);
+// ... Get data
+() => setLoading(false);
+```
 
-const result = await multiply(3, 7);
+```js
+<LoadingView
+  loading={loading}
+  style={{ width: 100, height: 100 }}
+  color1="purple"
+  color2="orange"
+  showBorderAfterLoad={true}
+>
+  <Text>Inner content that takes time to load</Text>
+</LoadingView>
 ```
 
 ## Contributing

@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-// import LoadingView from "./components/test";
 import LoadingView from '@qwertydevs/react-native-skeleton-view';
 
 export default function App() {
@@ -21,11 +20,13 @@ export default function App() {
       <LoadingView
         loading={loading1}
         style={styles.loadingView1}
-        borderColors={['purple', 'orange']}
+        color1="purple"
+        color2="orange"
+        showBorderAfterLoad={true}
       >
         <Text style={styles.text}>I loaded faster</Text>
       </LoadingView>
-      <LoadingView loading={loading2} style={styles.loadingView2}>
+      <LoadingView loading={loading2}>
         <Text style={styles.text}>I took a little longer to load</Text>
       </LoadingView>
     </View>

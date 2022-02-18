@@ -1,6 +1,6 @@
 {
   "name": "@qwertydevs/react-native-skeleton-view",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Animated skeleton view that extends the normal View component",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",

@@ -1,20 +1,25 @@
 import React, { useRef } from 'react';
 import { StyleSheet, StyleProp, ViewStyle, Animated } from 'react-native';
 
-// TODO support for dynamic color array
+// TODO support for dynamic color array?
 const DEFAULT_BORDER_COLORS = ['#f2f2f2', 'gray'];
 
 export default function LoadingView({
   loading,
   style,
   children,
-  borderColors,
+  color1,
+  color2,
+  showBorderAfterLoad,
 }: {
   loading: boolean;
   style?: StyleProp<ViewStyle>;
   children?: JSX.Element | JSX.Element[];
-  borderColors?: string[];
+  color1: string;
+  color2: string;
+  showBorderAfterLoad?: boolean;
 }) {
+  const [borderWidth, setBorderWidth] = React.useState(2);
   const borderColorAnim = useRef(new Animated.Value(0)).current;
   React.useEffect(() => {
     if (loading) {
@@ -38,13 +43,21 @@ export default function LoadingView({
         duration: 1000,
         useNativeDriver: true,
       }).start();
+      if (!showBorderAfterLoad) {
+        setBorderWidth(0);
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading]);
 
+  const borderColors =
+    Boolean(color1) && Boolean(color2)
+      ? [color1, color2]
+      : DEFAULT_BORDER_COLORS;
+
   const borderColor = borderColorAnim.interpolate({
     inputRange: [0, 1],
-    outputRange: borderColors || DEFAULT_BORDER_COLORS,
+    outputRange: borderColors,
   });
 
   return (
@@ -53,6 +66,7 @@ export default function LoadingView({
         styles.container,
         style,
         {
+          borderWidth,
           borderColor: borderColor,
         },
       ]}

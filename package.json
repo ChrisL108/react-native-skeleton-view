@@ -1,5 +1,5 @@
 {
-  "name": "react-native-skeleton-view",
+  "name": "@qwertydevs/react-native-skeleton-view",
   "version": "0.1.0",
   "description": "Animated skeleton view that extends the normal View component",
   "main": "lib/commonjs/index",
@@ -34,7 +34,10 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "skeleton",
+    "loading",
+    "animated"
   ],
   "repository": "https://github.com/ChrisL108/react-native-skeleton-view",
   "author": "Christopher Lacaille <chris@qwertydevs.com> (https://github.com/ChrisL108)",
@@ -114,7 +117,8 @@
           "singleQuote": true,
           "tabWidth": 2,
           "trailingComma": "es5",
-          "useTabs": false
+          "useTabs": false,
+          "endOfLine": "auto"
         }
       ]
     }
